@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Chinthamalla Akhil</title>
+<meta name="description" content="Missions sur mesure en développement commercial yachting, accès réseau, stratégie internationale et présence digitale — Côte d'Azur & Monaco.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1F3C; --navy-dark: #071428; --gold: #C9A84C; --gold-light: #DFC178;
+    --sand: #F5F1EB; --dark: #1A1A1A; --light: #FAFAF8;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--light); overflow-x: hidden; }
+  h1,h2,h3 { font-family: 'Playfair Display', serif; line-height: 1.15; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 60px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(13,31,60,0.97); backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(201,168,76,0.2);
+  }
+  .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-decoration: none; }
+  .nav-monogram { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--gold); letter-spacing: 0.05em; line-height: 1; }
+  .nav-name { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light); opacity: 0.75; line-height: 1; }
+  .nav-tagline { font-family: 'Cormorant Garamond', serif; font-size: 9px; font-weight: 400; font-style: italic; letter-spacing: 0.08em; color: var(--gold); opacity: 0.65; line-height: 1; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,250,248,0.8); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; }
+  .lang-btn { background: none; border: none; cursor: pointer; color: rgba(250,250,248,0.5); padding: 4px 6px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .lang-btn.active { color: var(--gold); }
+  .lang-sep { color: rgba(201,168,76,0.4); }
+
+  /* Page header */
+  #page-header {
+    padding: 140px 60px 80px;
+    background: var(--navy-dark);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+  .page-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  #page-header h1 { font-size: clamp(36px, 4vw, 56px); font-weight: 400; color: var(--light); max-width: 700px; margin-bottom: 24px; }
+  #page-header .intro { font-size: 16px; line-height: 1.7; color: rgba(250,250,248,0.55); max-width: 580px; }
+
+  /* Service block */
+  .service-block {
+    padding: 80px 60px;
+    border-bottom: 1px solid rgba(13,31,60,0.07);
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+    align-items: start;
+  }
+  .service-block:nth-child(even) { background: var(--sand); }
+  .service-block:nth-child(odd) { background: var(--light); }
+
+  .service-meta {}
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px; font-weight: 300; line-height: 1;
+    color: rgba(13,31,60,0.07); margin-bottom: 16px;
+  }
+  .service-block:nth-child(even) .service-num { color: rgba(13,31,60,0.06); }
+  .service-meta h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.5vw, 30px); font-weight: 400; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+  .service-for { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+  .service-detail {}
+  .service-desc { font-size: 15px; line-height: 1.8; color: #4a5568; margin-bottom: 32px; }
+
+  .service-includes-title { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); margin-bottom: 16px; }
+  .service-includes { list-style: none; margin-bottom: 32px; }
+  .service-includes li {
+    padding: 10px 0; border-bottom: 1px solid rgba(13,31,60,0.06);
+    font-size: 14px; line-height: 1.6; color: #5a6070;
+    display: flex; gap: 12px; align-items: baseline;
+  }
+  .service-includes li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  .service-footer {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 400; color: var(--navy);
+  }
+  .service-price span { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: #8090a0; display: block; margin-top: 2px; }
+
+  .service-cta {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: gap 0.2s;
+  }
+  .service-cta:hover { gap: 16px; }
+
+  /* Closing */
+  #closing {
+    padding: 100px 60px;
+    background: var(--navy);
+    text-align: center;
+  }
+  .closing-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 2.8vw, 36px);
+    font-style: italic; font-weight: 300;
+    color: var(--light); max-width: 700px; margin: 0 auto 16px;
+    line-height: 1.4;
+  }
+  .closing-sub { font-size: 14px; color: rgba(250,250,248,0.4); margin-bottom: 48px; }
+  .btn-gold {
+    display: inline-block; background: var(--gold); color: var(--navy-dark);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 16px 48px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  footer { background: var(--navy-dark); padding: 40px 60px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-legal { font-size: 11px; color: rgba(250,250,248,0.25); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+
+  .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; }
+
+  li [data-lang="fr"] { display: inline; } li [data-lang="en"] { display: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    #page-header { padding: 100px 24px 60px; }
+    .service-block { grid-template-columns: 1fr; gap: 32px; padding: 60px 24px; }
+    #closing { padding: 60px 24px; }
+    footer { padding: 32px 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-monogram">AC</span>
+    <span class="nav-name">Akhil Chinthamalla</span>
+    <span class="nav-tagline">French Riviera &amp; Monaco</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html"><span data-lang="fr">À propos</span><span data-lang="en">About</span></a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="secteur.html"><span data-lang="fr">Secteur</span><span data-lang="en">Industry</span></a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+</nav>
+
+<section id="page-header">
+  <div class="page-eyebrow"><span data-lang="fr">Missions</span><span data-lang="en">Engagements</span></div>
+  <h1>
+    <span data-lang="fr">Des missions sur mesure. Un réseau réel.</span>
+    <span data-lang="en">Bespoke engagements. A real network.</span>
+  </h1>
+  <p class="intro">
+    <span data-lang="fr">Chaque mission est personnalisée. Pas de packages standardisés, pas de consultants juniors : vous travaillez directement avec moi, du diagnostic à l'exécution.</span>
+    <span data-lang="en">Every engagement is personalised. No standard packages, no junior consultants, you work directly with me, from diagnostic to execution.</span>
+  </p>
+</section>
+
+<!-- SERVICE 1 -->
+<div class="service-block">
+  <div class="service-meta reveal">
+    <div class="service-num">01</div>
+    <h2>
+      <span data-lang="fr">Stratégie commerciale &amp; entrée sur le marché</span>
+      <span data-lang="en">Commercial strategy &amp; market entry</span>
+    </h2>
+    <div class="service-for">
+      <span data-lang="fr">Pour les prestataires qui veulent structurer leur développement</span>
+      <span data-lang="en">For providers looking to structure their growth</span>
+    </div>
+  </div>
+  <div class="service-detail reveal reveal-d1">
+    <p class="service-desc">
+      <span data-lang="fr">Vous êtes prestataire dans l'écosystème nautique et vous manquez d'une approche commerciale structurée. Cette mission pose les fondations : qui cibler, comment les approcher, avec quel message, sur quel calendrier.</span>
+      <span data-lang="en">You are a provider in the nautical ecosystem and lack a structured commercial approach. This engagement lays the foundations: who to target, how to approach them, with what message, on what timeline.</span>
+    </p>
+    <div class="service-includes-title"><span data-lang="fr">Ce que ça comprend</span><span data-lang="en">What's included</span></div>
+    <ul class="service-includes">
+      <li><span data-lang="fr">Audit commercial de votre activité actuelle</span><span data-lang="en">Commercial audit of your current business</span></li>
+      <li><span data-lang="fr">Analyse du marché et de la concurrence sur la Riviera</span><span data-lang="en">Market and competitive analysis on the Riviera</span></li>
+      <li><span data-lang="fr">Identification et priorisation des cibles commerciales</span><span data-lang="en">Identification and prioritisation of commercial targets</span></li>
+      <li><span data-lang="fr">Plan d'action détaillé avec jalons et indicateurs</span><span data-lang="en">Detailed action plan with milestones and indicators</span></li>
+      <li><span data-lang="fr">Accompagnement sur les premières semaines d'exécution</span><span data-lang="en">Support through the first weeks of execution</span></li>
+    </ul>
+    <div class="service-footer">
+      <div class="service-price">
+        €1 500 – €2 500
+        <span><span data-lang="fr">Mission de 6 à 8 semaines</span><span data-lang="en">6 to 8 week engagement</span></span>
+      </div>
+      <a href="contact.html" class="service-cta">
+        <span data-lang="fr">Discuter de votre projet →</span><span data-lang="en">Discuss your project →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 2 -->
+<div class="service-block">
+  <div class="service-meta reveal">
+    <div class="service-num">02</div>
+    <h2>
+      <span data-lang="fr">Accès réseau &amp; mises en relation stratégiques</span>
+      <span data-lang="en">Network access &amp; strategic introductions</span>
+    </h2>
+    <div class="service-for">
+      <span data-lang="fr">Pour ceux qui ont besoin d'accès direct aux décideurs</span>
+      <span data-lang="en">For those who need direct access to decision-makers</span>
+    </div>
+  </div>
+  <div class="service-detail reveal reveal-d1">
+    <p class="service-desc">
+      <span data-lang="fr">Le cœur de mon activité. Je vous ouvre les portes que la prospection conventionnelle ne peut pas ouvrir : gestionnaires de yachts, courtiers établis, capitaines de bord, armateurs. Des introductions qui ont du poids parce qu'elles viennent d'une relation de confiance.</span>
+      <span data-lang="en">The heart of my practice. I open doors that conventional prospecting cannot, including yacht managers,, established brokers, captains, owners. Introductions that carry weight because they come from a trusted relationship.</span>
+    </p>
+    <div class="service-includes-title"><span data-lang="fr">Ce que ça comprend</span><span data-lang="en">What's included</span></div>
+    <ul class="service-includes">
+      <li><span data-lang="fr">Cartographie de vos cibles prioritaires dans le réseau</span><span data-lang="en">Mapping of your priority targets within the network</span></li>
+      <li><span data-lang="fr">Introductions directes et qualifiées, sans intermédiaire</span><span data-lang="en">Direct, qualified introductions without intermediaries</span></li>
+      <li><span data-lang="fr">Préparation et briefing avant chaque rendez-vous</span><span data-lang="en">Preparation and briefing before each meeting</span></li>
+      <li><span data-lang="fr">Suivi post-introduction et accompagnement commercial</span><span data-lang="en">Post-introduction follow-up and commercial support</span></li>
+    </ul>
+    <div class="service-footer">
+      <div class="service-price">
+        €1 200 – €2 000
+        <span><span data-lang="fr">Mission de 1 à 2 mois</span><span data-lang="en">1 to 2 month engagement</span></span>
+      </div>
+      <a href="contact.html" class="service-cta">
+        <span data-lang="fr">Discuter de votre projet →</span><span data-lang="en">Discuss your project →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 3 -->
+<div class="service-block">
+  <div class="service-meta reveal">
+    <div class="service-num">03</div>
+    <h2>
+      <span data-lang="fr">Stratégie de marché internationale</span>
+      <span data-lang="en">International market strategy</span>
+    </h2>
+    <div class="service-for">
+      <span data-lang="fr">Pour les entreprises qui veulent atteindre les marchés HNWI internationaux</span>
+      <span data-lang="en">For companies seeking to reach international HNWI markets</span>
+    </div>
+  </div>
+  <div class="service-detail reveal reveal-d1">
+    <p class="service-desc">
+      <span data-lang="fr">Les clientèles HNWI indiennes et moyen-orientales représentent une opportunité majeure pour le yachting méditerranéen. J'apporte la connaissance culturelle, les contacts et la stratégie pour les atteindre efficacement.</span>
+      <span data-lang="en">Indian and Middle Eastern HNWI clients represent a major opportunity for Mediterranean yachting. I bring the cultural knowledge, contacts and strategy to reach them effectively.</span>
+    </p>
+    <div class="service-includes-title"><span data-lang="fr">Ce que ça comprend</span><span data-lang="en">What's included</span></div>
+    <ul class="service-includes">
+      <li><span data-lang="fr">Analyse complète des marchés cibles (Inde, EAU, Qatar, UK)</span><span data-lang="en">Full analysis of target markets (India, UAE, Qatar, UK)</span></li>
+      <li><span data-lang="fr">Identification des canaux d'accès et partenaires locaux</span><span data-lang="en">Identification of access channels and local partners</span></li>
+      <li><span data-lang="fr">Adaptation du positionnement et des messages commerciaux</span><span data-lang="en">Adaptation of positioning and commercial messaging</span></li>
+      <li><span data-lang="fr">Plan de pénétration marché avec calendrier et budget indicatif</span><span data-lang="en">Market entry plan with timeline and indicative budget</span></li>
+      <li><span data-lang="fr">Introductions aux contacts locaux dans les marchés cibles</span><span data-lang="en">Introductions to local contacts in target markets</span></li>
+    </ul>
+    <div class="service-footer">
+      <div class="service-price">
+        €2 000 – €3 000
+        <span><span data-lang="fr">Analyse complète de marché</span><span data-lang="en">Full market analysis</span></span>
+      </div>
+      <a href="contact.html" class="service-cta">
+        <span data-lang="fr">Discuter de votre projet →</span><span data-lang="en">Discuss your project →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 4 -->
+<div class="service-block">
+  <div class="service-meta reveal">
+    <div class="service-num">04</div>
+    <h2>
+      <span data-lang="fr">Présence digitale &amp; positionnement</span>
+      <span data-lang="en">Digital presence &amp; positioning</span>
+    </h2>
+    <div class="service-for">
+      <span data-lang="fr">Pour les prestataires qui veulent exister en ligne avec crédibilité</span>
+      <span data-lang="en">For providers who want a credible online presence</span>
+    </div>
+  </div>
+  <div class="service-detail reveal reveal-d1">
+    <p class="service-desc">
+      <span data-lang="fr">Dans un marché où les décisions se prennent encore largement par recommandation, votre présence digitale est votre carte de visite avant la rencontre. Elle doit rassurer, crédibiliser, différencier.</span>
+      <span data-lang="en">In a market where decisions are still largely driven by recommendation, your digital presence is your business card before the meeting. It must reassure, credibilise, and differentiate.</span>
+    </p>
+    <div class="service-includes-title"><span data-lang="fr">Ce que ça comprend</span><span data-lang="en">What's included</span></div>
+    <ul class="service-includes">
+      <li><span data-lang="fr">Audit de votre présence digitale actuelle</span><span data-lang="en">Audit of your current digital presence</span></li>
+      <li><span data-lang="fr">Stratégie de positionnement et de contenu LinkedIn</span><span data-lang="en">LinkedIn positioning and content strategy</span></li>
+      <li><span data-lang="fr">Brief et supervision de la refonte ou création de site web</span><span data-lang="en">Brief and supervision of website redesign or creation</span></li>
+      <li><span data-lang="fr">Optimisation SEO pour les mots-clés du secteur nautique</span><span data-lang="en">SEO optimisation for nautical sector keywords</span></li>
+    </ul>
+    <div class="service-footer">
+      <div class="service-price">
+        €1 200 – €1 500
+        <span><span data-lang="fr">Mission de 4 à 6 semaines</span><span data-lang="en">4 to 6 week engagement</span></span>
+      </div>
+      <a href="contact.html" class="service-cta">
+        <span data-lang="fr">Discuter de votre projet →</span><span data-lang="en">Discuss your project →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 5 -->
+<div class="service-block">
+  <div class="service-meta reveal">
+    <div class="service-num">05</div>
+    <h2>
+      <span data-lang="fr">Accompagnement mensuel en forfait</span>
+      <span data-lang="en">Monthly retainer</span>
+    </h2>
+    <div class="service-for">
+      <span data-lang="fr">Pour les entreprises qui veulent un partenaire commercial permanent</span>
+      <span data-lang="en">For companies wanting a permanent commercial partner</span>
+    </div>
+  </div>
+  <div class="service-detail reveal reveal-d1">
+    <p class="service-desc">
+      <span data-lang="fr">La formule la plus complète. Un accès continu à mon réseau, un suivi mensuel de votre développement commercial, et la garantie d'un interlocuteur unique et disponible, comme si vous aviez un directeur commercial dédié, sans les charges qui vont avec.</span>
+      <span data-lang="en">The most comprehensive option. Ongoing access to my network, monthly monitoring of your commercial development, and the guarantee of a single, available point of contact, like having a dedicated commercial director, without the associated costs.</span>
+    </p>
+    <div class="service-includes-title"><span data-lang="fr">Ce que ça comprend</span><span data-lang="en">What's included</span></div>
+    <ul class="service-includes">
+      <li><span data-lang="fr">Accès permanent au réseau, introductions sur demande</span><span data-lang="en">Permanent network access, introductions on demand</span></li>
+      <li><span data-lang="fr">Revue mensuelle de votre développement commercial</span><span data-lang="en">Monthly review of your commercial development</span></li>
+      <li><span data-lang="fr">Veille sectorielle et alertes opportunités</span><span data-lang="en">Sector monitoring and opportunity alerts</span></li>
+      <li><span data-lang="fr">Support stratégique ad hoc selon les besoins</span><span data-lang="en">Ad hoc strategic support as needed</span></li>
+      <li><span data-lang="fr">Disponibilité WhatsApp / email prioritaire</span><span data-lang="en">Priority WhatsApp / email availability</span></li>
+    </ul>
+    <div class="service-footer">
+      <div class="service-price">
+        €800 – €1 200
+        <span><span data-lang="fr">Par mois, engagement minimum 3 mois</span><span data-lang="en">Per month, minimum 3-month commitment</span></span>
+      </div>
+      <a href="contact.html" class="service-cta">
+        <span data-lang="fr">Discuter de votre projet →</span><span data-lang="en">Discuss your project →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<section id="closing">
+  <p class="closing-quote">
+    <span data-lang="fr">"Vous ne savez pas par où commencer ? Un premier échange de 30 minutes suffit pour identifier les priorités."</span>
+    <span data-lang="en">"Not sure where to start? A 30-minute conversation is enough to identify the priorities."</span>
+  </p>
+  <p class="closing-sub">
+    <span data-lang="fr">Premier échange sans engagement. Toujours.</span>
+    <span data-lang="en">First conversation, no commitment. Always.</span>
+  </p>
+  <a href="contact.html" class="btn-gold">
+    <span data-lang="fr">Prendre contact</span><span data-lang="en">Get in touch</span>
+  </a>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <span class="footer-legal"><a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp; SIRET 10151439600015 &nbsp;·&nbsp; © 2026 Chinthamalla Akhil</span>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr-2">FR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en-2">EN</button>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el) {
+      if (el.dataset.lang === lang) {
+        var inlineTags = ['span','a','em','strong','i','b','label'];
+        var isInline = inlineTags.indexOf(el.tagName.toLowerCase()) !== -1;
+        el.style.setProperty('display', isInline ? 'inline' : 'block', 'important');
+      } else {
+        el.style.setProperty('display', 'none', 'important');
+      }
+    });
+    ['fr','en'].forEach(function(l) {
+      document.querySelectorAll('#btn-' + l + ', #btn-' + l + '-2').forEach(function(b) {
+        b.classList.toggle('active', l === lang);
+      });
+    });
+    document.querySelectorAll('[data-nav-' + lang + ']').forEach(function(el) {
+      el.textContent = el.getAttribute('data-nav-' + lang);
+    });
+  }
+  setLang('fr');
+</script>
+</body>
+</html>
