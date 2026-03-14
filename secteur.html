@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le yachting de luxe sur la Côte d'Azur — Chinthamalla Akhil</title>
+<meta name="description" content="Comprendre le marché du yachting de luxe sur la Côte d'Azur et Monaco. Acteurs, dynamiques, opportunités pour les prestataires nautiques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1F3C; --navy-dark: #071428; --gold: #C9A84C; --gold-light: #DFC178;
+    --sand: #F5F1EB; --dark: #1A1A1A; --light: #FAFAF8;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--light); overflow-x: hidden; }
+  h1,h2,h3 { font-family: 'Playfair Display', serif; line-height: 1.15; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 60px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(13,31,60,0.97); backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(201,168,76,0.2);
+  }
+  .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-decoration: none; }
+  .nav-monogram { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--gold); letter-spacing: 0.05em; line-height: 1; }
+  .nav-name { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light); opacity: 0.75; line-height: 1; }
+  .nav-tagline { font-family: 'Cormorant Garamond', serif; font-size: 9px; font-weight: 400; font-style: italic; letter-spacing: 0.08em; color: var(--gold); opacity: 0.65; line-height: 1; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,250,248,0.8); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; }
+  .lang-btn { background: none; border: none; cursor: pointer; color: rgba(250,250,248,0.5); padding: 4px 6px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .lang-btn.active { color: var(--gold); }
+  .lang-sep { color: rgba(201,168,76,0.4); }
+
+  /* PAGE HERO */
+  #page-hero {
+    padding-top: 72px;
+    min-height: 480px;
+    background: var(--navy-dark);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('Yacht2.jpg');
+    background-size: cover; background-position: center;
+    filter: brightness(0.25) saturate(0.7);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 80px 60px;
+    max-width: 780px;
+  }
+  .page-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .page-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .hero-content h1 { font-size: clamp(34px, 4vw, 52px); font-weight: 400; color: var(--light); margin-bottom: 24px; line-height: 1.15; }
+  .hero-content h1 em { font-style: italic; color: var(--gold); }
+  .hero-content .intro { font-size: 16px; line-height: 1.75; color: rgba(250,250,248,0.55); max-width: 580px; }
+
+  /* STATS BAND */
+  #stats {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: rgba(201,168,76,0.08);
+    gap: 1px;
+  }
+  .stat-block {
+    padding: 48px 40px;
+    background: var(--navy);
+    border-top: 2px solid var(--gold);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 300; line-height: 1;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .stat-label { font-size: 13px; line-height: 1.6; color: rgba(250,250,248,0.55); }
+
+  /* CONTENT SECTIONS */
+  .content-section {
+    padding: 100px 60px;
+  }
+  .content-section.sand { background: var(--sand); }
+  .content-section.light { background: var(--light); }
+  .content-section.navy { background: var(--navy); }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px); font-weight: 400;
+    color: var(--navy); margin-bottom: 48px; max-width: 640px;
+  }
+  .section-title.light-text { color: var(--light); }
+
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .body-text p {
+    font-size: 15px; line-height: 1.85; color: #4a5568; margin-bottom: 24px;
+  }
+  .body-text p:last-child { margin-bottom: 0; }
+  .body-text.light-text p { color: rgba(250,250,248,0.6); }
+  .body-text p strong { color: var(--navy); font-weight: 500; }
+  .body-text.light-text p strong { color: var(--gold); font-weight: 500; }
+
+  /* PLAYERS GRID */
+  .players-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 16px;
+  }
+  .player-card {
+    padding: 36px 32px;
+    background: var(--sand);
+    border: 1px solid rgba(13,31,60,0.07);
+    border-top: 2px solid transparent;
+    transition: border-top-color 0.3s, transform 0.3s;
+  }
+  .player-card:hover { border-top-color: var(--gold); transform: translateY(-2px); }
+  .player-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300;
+    color: rgba(201,168,76,0.4); line-height: 1; margin-bottom: 16px;
+  }
+  .player-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 400; color: var(--navy); margin-bottom: 10px;
+  }
+  .player-desc { font-size: 13px; line-height: 1.7; color: #6a7585; }
+
+  /* WHY NOW */
+  .reasons-list {
+    display: flex; flex-direction: column; gap: 1px;
+    margin-top: 16px;
+  }
+  .reason-item {
+    display: grid; grid-template-columns: 64px 1fr;
+    gap: 24px; align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .reason-item:first-child { border-top: 1px solid rgba(201,168,76,0.15); }
+  .reason-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 300; line-height: 1;
+    color: rgba(201,168,76,0.3);
+  }
+  .reason-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 400;
+    color: var(--light); margin-bottom: 10px;
+  }
+  .reason-body p { font-size: 14px; line-height: 1.75; color: rgba(250,250,248,0.55); }
+
+  /* GEOGRAPHY */
+  .geo-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin-top: 16px;
+  }
+  .geo-card {
+    padding: 32px 28px;
+    background: rgba(201,168,76,0.04);
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .geo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 400; color: var(--gold); margin-bottom: 10px;
+  }
+  .geo-desc { font-size: 13px; line-height: 1.7; color: rgba(250,250,248,0.5); }
+
+  /* CTA */
+  #page-cta {
+    padding: 80px 60px;
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    border-top: 1px solid rgba(13,31,60,0.08);
+  }
+  .cta-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; color: var(--navy);
+  }
+  .btn-primary {
+    display: inline-block; background: var(--gold); color: var(--navy-dark);
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 16px 40px; text-decoration: none; white-space: nowrap;
+    border: 1px solid var(--gold);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* GOLD RULE */
+  .gold-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 48px; }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 40px 60px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-legal { font-size: 11px; color: rgba(250,250,248,0.25); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+
+  [data-lang] { display: none; }
+  [data-lang="fr"] { display: block; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .hero-content { padding: 60px 24px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .content-section { padding: 60px 24px; }
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+    .players-grid { grid-template-columns: 1fr; }
+    .geo-grid { grid-template-columns: 1fr 1fr; }
+    #page-cta { flex-direction: column; text-align: center; padding: 60px 24px; }
+    footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-monogram">AC</span>
+    <span class="nav-name">Akhil Chinthamalla</span>
+    <span class="nav-tagline">French Riviera &amp; Monaco</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html"><span data-lang="fr">À propos</span><span data-lang="en">About</span></a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="secteur.html" class="active"><span data-lang="fr">Secteur</span><span data-lang="en">Industry</span></a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="page-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="page-eyebrow">
+      <span data-lang="fr">Secteur</span><span data-lang="en">Industry</span>
+    </div>
+    <h1>
+      <span data-lang="fr">Le yachting de luxe sur la <em>Côte d'Azur.</em></span>
+      <span data-lang="en">Luxury yachting on the <em>French Riviera.</em></span>
+    </h1>
+    <p class="intro">
+      <span data-lang="fr">Un marché de plusieurs milliards d'euros, profondément relationnel, structurellement fragmenté, et encore sous-exploité par la plupart de ses acteurs.</span>
+      <span data-lang="en">A multi-billion euro market, deeply relationship-driven, structurally fragmented, and still underexploited by most of its players.</span>
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-num">€10B+</div>
+      <div class="stat-label">
+        <span data-lang="fr">Valeur estimée du marché du yachting de luxe en Méditerranée</span>
+        <span data-lang="en">Estimated value of the luxury yachting market in the Mediterranean</span>
+      </div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">5 000+</div>
+      <div class="stat-label">
+        <span data-lang="fr">Yachts de plus de 24 mètres actifs en Méditerranée chaque saison</span>
+        <span data-lang="en">Yachts over 24 metres active in the Mediterranean each season</span>
+      </div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">300+</div>
+      <div class="stat-label">
+        <span data-lang="fr">Sociétés de services nautiques spécialisées sur la Côte d'Azur</span>
+        <span data-lang="en">Specialist nautical service companies on the French Riviera</span>
+      </div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">
+        <span data-lang="fr">Des contrats attribués par recommandation personnelle, pas par appel d'offres</span>
+        <span data-lang="en">Of contracts awarded through personal recommendation, not open tender</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET LANDSCAPE -->
+<section class="content-section sand">
+  <div class="section-eyebrow">
+    <span data-lang="fr">Le marché</span><span data-lang="en">The market</span>
+  </div>
+  <h2 class="section-title">
+    <span data-lang="fr">Un écosystème unique au monde.</span>
+    <span data-lang="en">A unique ecosystem in the world.</span>
+  </h2>
+  <div class="two-col">
+    <div class="body-text">
+      <p>
+        <span data-lang="fr">La Côte d'Azur concentre l'une des plus grandes densités de yachts de luxe au monde entre avril et octobre. Nice, Antibes, Cannes, Saint-Tropez et Monaco forment un corridor maritime où se croisent armateurs, gestionnaires, équipages et prestataires de services de rang mondial.</span>
+        <span data-lang="en">The French Riviera concentrates one of the world's highest densities of luxury yachts between April and October. Nice, Antibes, Cannes, Saint-Tropez and Monaco form a maritime corridor where owners, managers, crew and world-class service providers all converge.</span>
+      </p>
+      <p>
+        <span data-lang="fr">Antibes est la capitale technique mondiale du superyacht. Port Vauban accueille plus de 1 700 bateaux et constitue le principal hub de maintenance, d'hivernage et d'équipage de la Méditerranée. Monaco représente quant à lui le sommet de la clientèle UHNWI et accueille chaque automne le Monaco Yacht Show, événement de référence mondial du secteur.</span>
+        <span data-lang="en">Antibes is the world's technical capital of the superyacht. Port Vauban hosts over 1,700 boats and is the primary hub for maintenance, wintering and crewing in the Mediterranean. Monaco represents the pinnacle of UHNWI clientele and hosts the Monaco Yacht Show each autumn, the world's reference event for the sector.</span>
+      </p>
+    </div>
+    <div class="body-text">
+      <p>
+        <span data-lang="fr">Ce marché est profondément local dans son fonctionnement malgré sa clientèle internationale. Les décisions d'achat, de prestation et de partenariat se prennent dans un cercle restreint de professionnels qui se connaissent, se font confiance, et se recommandent mutuellement. L'accès à ce cercle est la barrière à l'entrée principale pour tout prestataire souhaitant développer son activité nautique.</span>
+        <span data-lang="en">This market is deeply local in its functioning despite its international clientele. Purchasing, service and partnership decisions are made within a small circle of professionals who know each other, trust each other, and recommend each other. Access to this circle is the primary barrier to entry for any provider seeking to develop their nautical business.</span>
+      </p>
+      <p>
+        <span data-lang="fr">C'est précisément ce que j'apporte : un accès direct, qualifié et crédible à ce réseau, pour des prestataires qui méritent d'en faire partie.</span>
+        <span data-lang="en">This is precisely what I provide: direct, qualified and credible access to this network, for providers who deserve to be part of it.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO ARE THE PLAYERS -->
+<section class="content-section light">
+  <div class="section-eyebrow">
+    <span data-lang="fr">Les acteurs</span><span data-lang="en">The players</span>
+  </div>
+  <h2 class="section-title">
+    <span data-lang="fr">Qui sont les décideurs du marché ?</span>
+    <span data-lang="en">Who are the market decision-makers?</span>
+  </h2>
+  <div class="players-grid">
+    <div class="player-card">
+      <div class="player-icon">01</div>
+      <div class="player-name">
+        <span data-lang="fr">Gestionnaires de yachts</span><span data-lang="en">Yacht managers</span>
+      </div>
+      <p class="player-desc">
+        <span data-lang="fr">Ils gèrent les flottes pour le compte des armateurs. Ce sont eux qui sélectionnent et contractualisent avec les prestataires techniques, d'entretien et de services. Leur approbation est indispensable pour tout fournisseur souhaitant travailler régulièrement avec des superyachts.</span>
+        <span data-lang="en">They manage fleets on behalf of owners. They select and contract with technical, maintenance and service providers. Their approval is essential for any supplier seeking to work regularly with superyachts.</span>
+      </p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">02</div>
+      <div class="player-name">
+        <span data-lang="fr">Courtiers en yachting</span><span data-lang="en">Yacht brokers</span>
+      </div>
+      <p class="player-desc">
+        <span data-lang="fr">Intermédiaires entre acheteurs, vendeurs et affréteurs, les courtiers constituent un réseau d'influence majeur. Ils orientent les clients vers des prestataires de confiance et leur recommandation a une valeur commerciale directe pour tout acteur de l'écosystème.</span>
+        <span data-lang="en">Intermediaries between buyers, sellers and charterers, brokers form a major network of influence. They direct clients towards trusted providers and their recommendation has direct commercial value for any player in the ecosystem.</span>
+      </p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">03</div>
+      <div class="player-name">
+        <span data-lang="fr">Capitaines de bord</span><span data-lang="en">Captains</span>
+      </div>
+      <p class="player-desc">
+        <span data-lang="fr">Souvent décisionnaires ou fortement influents sur le choix des prestataires techniques, des fournisseurs et des équipages. Un capitaine satisfait devient un ambassadeur naturel pour votre entreprise auprès de ses pairs et de ses armateurs.</span>
+        <span data-lang="en">Often decision-makers or strongly influential in the choice of technical providers, suppliers and crew. A satisfied captain becomes a natural ambassador for your business among peers and owners.</span>
+      </p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">04</div>
+      <div class="player-name">
+        <span data-lang="fr">Agences de crew</span><span data-lang="en">Crew agencies</span>
+      </div>
+      <p class="player-desc">
+        <span data-lang="fr">Au cœur du marché de l'emploi nautique, les agences de crew ont une visibilité unique sur les besoins des flottes. Elles constituent un point d'entrée précieux pour les prestataires de formation, d'équipement et de services aux équipages.</span>
+        <span data-lang="en">At the heart of the nautical employment market, crew agencies have unique visibility into fleet needs. They are a valuable entry point for training, equipment and crew services providers.</span>
+      </p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">05</div>
+      <div class="player-name">
+        <span data-lang="fr">Chantiers navals</span><span data-lang="en">Shipyards</span>
+      </div>
+      <p class="player-desc">
+        <span data-lang="fr">Les chantiers de la région, notamment à La Ciotat, Antibes et Cannes, sont des hubs d'activité intense pendant la saison hivernale. Ils concentrent maintenance, refit et construction, et constituent des partenaires stratégiques pour de nombreux prestataires techniques.</span>
+        <span data-lang="en">Regional shipyards, notably at La Ciotat, Antibes and Cannes, are hubs of intense activity during the winter season. They concentrate maintenance, refit and construction, and are strategic partners for many technical providers.</span>
+      </p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon">06</div>
+      <div class="player-name">
+        <span data-lang="fr">Prestataires de services</span><span data-lang="en">Service providers</span>
+      </div>
+      <p class="player-desc">
+        <span data-lang="fr">Provisionnistes, services de conciergerie, fournisseurs techniques, experts en communication ou en marketing nautique. C'est souvent ce profil qui bénéficie le plus d'un accès structuré au réseau, faute de visibilité auprès des gestionnaires et capitaines.</span>
+        <span data-lang="en">Provisioners, concierge services, technical suppliers, nautical communications or marketing experts. This profile often benefits most from structured network access, for lack of visibility among managers and captains.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FRAGMENTATION PROBLEM -->
+<section class="content-section navy">
+  <div class="section-eyebrow">
+    <span data-lang="fr">Le problème</span><span data-lang="en">The problem</span>
+  </div>
+  <h2 class="section-title light-text">
+    <span data-lang="fr">Pourquoi la recommandation personnelle prime sur tout le reste.</span>
+    <span data-lang="en">Why personal recommendation trumps everything else.</span>
+  </h2>
+  <div class="reasons-list">
+    <div class="reason-item">
+      <div class="reason-num">01</div>
+      <div class="reason-body">
+        <h3><span data-lang="fr">Un marché de confiance, pas de publicité</span><span data-lang="en">A trust market, not an advertising market</span></h3>
+        <p><span data-lang="fr">Les gestionnaires de yachts reçoivent des dizaines de sollicitations commerciales chaque semaine. Ils n'en retiennent qu'une infime partie, toujours issues de leur cercle de confiance. Une recommandation directe d'un capitaine ou d'un confrère vaut dix fois un email commercial bien rédigé.</span><span data-lang="en">Yacht managers receive dozens of commercial approaches every week. They retain only a tiny fraction, always from within their circle of trust. A direct recommendation from a captain or peer is worth ten times a well-written marketing email.</span></p>
+      </div>
+    </div>
+    <div class="reason-item">
+      <div class="reason-num">02</div>
+      <div class="reason-body">
+        <h3><span data-lang="fr">Des prestataires excellents mais invisibles</span><span data-lang="en">Excellent but invisible providers</span></h3>
+        <p><span data-lang="fr">La Côte d'Azur compte des centaines de sociétés de services nautiques de haute qualité. La plupart n'ont pas les ressources ni les contacts pour accéder aux décideurs. Leur excellence ne suffit pas : sans introduction, elles restent hors du périmètre de sélection.</span><span data-lang="en">The French Riviera has hundreds of high-quality nautical service companies. Most lack the resources or contacts to reach decision-makers. Their excellence is not enough: without an introduction, they remain outside the selection perimeter.</span></p>
+      </div>
+    </div>
+    <div class="reason-item">
+      <div class="reason-num">03</div>
+      <div class="reason-body">
+        <h3><span data-lang="fr">Une saisonnalité qui compresse le temps commercial</span><span data-lang="en">Seasonality that compresses commercial time</span></h3>
+        <p><span data-lang="fr">La saison Méditerranée dure de mai à octobre. Les décisions de prestataires se prennent en hiver, souvent lors d'événements sectoriels spécifiques comme le Monaco Yacht Show ou la METS. Arriver hors saison sans réseau préalable revient à frapper à des portes fermées.</span><span data-lang="en">The Mediterranean season runs from May to October. Provider decisions are made in winter, often at specific sector events such as the Monaco Yacht Show or METS. Arriving off-season without a prior network means knocking on closed doors.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOGRAPHY -->
+<section class="content-section navy" style="padding-top: 0;">
+  <div class="geo-grid">
+    <div class="geo-card">
+      <div class="geo-name">Antibes</div>
+      <p class="geo-desc"><span data-lang="fr">Capital mondiale du superyacht. Port Vauban, chantiers de refit, hub d'hivernage.</span><span data-lang="en">World capital of the superyacht. Port Vauban, refit yards, wintering hub.</span></p>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">Monaco</div>
+      <p class="geo-desc"><span data-lang="fr">Sommet UHNWI. Monaco Yacht Show, courtiers de premier plan, armateurs privés.</span><span data-lang="en">UHNWI summit. Monaco Yacht Show, leading brokers, private owners.</span></p>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">Cannes</div>
+      <p class="geo-desc"><span data-lang="fr">Port Canto, clientèle festival et charter haut de gamme, chantiers actifs.</span><span data-lang="en">Port Canto, festival and premium charter clientele, active yards.</span></p>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">Nice</div>
+      <p class="geo-desc"><span data-lang="fr">Port de commerce et de plaisance, hub logistique régional, accès aéroport international.</span><span data-lang="en">Commercial and leisure port, regional logistics hub, international airport access.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="content-section sand">
+  <div class="section-eyebrow">
+    <span data-lang="fr">Pourquoi maintenant</span><span data-lang="en">Why now</span>
+  </div>
+  <h2 class="section-title">
+    <span data-lang="fr">Trois tendances qui ouvrent la fenêtre d'opportunité.</span>
+    <span data-lang="en">Three trends opening the opportunity window.</span>
+  </h2>
+  <div class="two-col">
+    <div class="body-text">
+      <p>
+        <span data-lang="fr"><strong>La reprise post-Covid.</strong> Le secteur du yachting de luxe a connu une croissance exceptionnelle depuis 2021. Les carnets de commande des chantiers navals atteignent des records, les demandes de charter explosent, et de nouveaux propriétaires fortunés entrent sur le marché, notamment en provenance du Moyen-Orient et d'Asie. Cette expansion crée des besoins nouveaux en prestataires qualifiés que le réseau traditionnel ne peut pas absorber seul.</span>
+        <span data-lang="en"><strong>The post-Covid recovery.</strong> The luxury yachting sector has experienced exceptional growth since 2021. Shipyard order books are at record levels, charter demand is surging, and new wealthy owners are entering the market, notably from the Middle East and Asia. This expansion creates new needs for qualified providers that the traditional network cannot absorb alone.</span>
+      </p>
+      <p>
+        <span data-lang="fr"><strong>L'accélération digitale.</strong> La pandémie a forcé même les acteurs les plus traditionnels du secteur à adopter des canaux digitaux pour la communication, la prospection et la gestion. Les prestataires qui savent utiliser LinkedIn, les plateformes spécialisées et le contenu digital pour se positionner ont désormais un avantage structurel sur ceux qui n'opèrent qu'en mode relationnel hors ligne.</span>
+        <span data-lang="en"><strong>Digital acceleration.</strong> The pandemic forced even the most traditional sector players to adopt digital channels for communication, prospecting and management. Providers who know how to use LinkedIn, specialist platforms and digital content to position themselves now have a structural advantage over those operating exclusively in offline relational mode.</span>
+      </p>
+    </div>
+    <div class="body-text">
+      <p>
+        <span data-lang="fr"><strong>Les nouveaux marchés HNWI.</strong> La clientèle du yachting méditerranéen s'internationalise rapidement. Les HNWI indiens et moyen-orientaux représentent une part croissante des propriétaires et affréteurs, avec des codes culturels et des attentes spécifiques que les opérateurs locaux peinent à adresser. Pour les prestataires capables d'y répondre, ou désireux de les cibler, c'est une fenêtre d'opportunité majeure encore largement ouverte.</span>
+        <span data-lang="en"><strong>New HNWI markets.</strong> The Mediterranean yachting clientele is rapidly internationalising. Indian and Middle Eastern HNWIs represent a growing share of owners and charterers, with specific cultural codes and expectations that local operators struggle to address. For providers able to meet these expectations, or wishing to target them, this is a major opportunity window that remains largely open.</span>
+      </p>
+      <p>
+        <span data-lang="fr">Ces trois tendances convergent pour créer une période favorable au développement commercial dans le secteur nautique. Les prestataires qui structurent leur approche maintenant — réseau, positionnement, marchés internationaux — prendront une avance difficile à combler dans les années qui viennent.</span>
+        <span data-lang="en">These three trends converge to create a favourable period for commercial development in the nautical sector. Providers who structure their approach now, through network, positioning and international markets, will build an advantage that will be difficult to close in the years ahead.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="page-cta">
+  <h2 class="cta-text">
+    <span data-lang="fr">Votre activité opère dans cet écosystème. Parlons-en.</span>
+    <span data-lang="en">Your business operates in this ecosystem. Let's talk.</span>
+  </h2>
+  <a href="contact.html" class="btn-primary">
+    <span data-lang="fr">Prendre contact</span><span data-lang="en">Get in touch</span>
+  </a>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <span class="footer-legal">
+      <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp; SIRET 10151439600015 &nbsp;·&nbsp; © 2026 Chinthamalla Akhil
+    </span>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr-2">FR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en-2">EN</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el) {
+      if (el.dataset.lang === lang) {
+        var inlineTags = ['span','a','em','strong','i','b'];
+        var isInline = inlineTags.indexOf(el.tagName.toLowerCase()) !== -1;
+        el.style.setProperty('display', isInline ? 'inline' : 'block', 'important');
+      } else {
+        el.style.setProperty('display', 'none', 'important');
+      }
+    });
+    ['fr','en'].forEach(function(l) {
+      document.querySelectorAll('#btn-' + l + ', #btn-' + l + '-2').forEach(function(b) {
+        b.classList.toggle('active', l === lang);
+      });
+    });
+  }
+  setLang('fr');
+</script>
+</body>
+</html>
